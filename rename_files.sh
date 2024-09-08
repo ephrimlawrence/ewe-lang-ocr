@@ -5,5 +5,6 @@ prefix="$2"
 
 
 for f in $(ls "$dir"); do
-    echo $f
+    mv -v "$dir$f" "$dir${prefix}_$f"
+    # echo $f
 done
