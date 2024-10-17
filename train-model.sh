@@ -15,6 +15,6 @@ make tesseract-langdata
 make training MODEL_NAME=eng
 
 # copy the final model
-cp --verbose --force data/eng.traineddata .
+cp --verbose --force data/eng.traineddata ../app/ewe.traineddata
 
 echo "Training completed!";
