@@ -10,6 +10,8 @@ cp --recursive --verbose --force training_data/special-alphabet/sentence/* tesst
 
 cd tesstrain;
 
+make tesseract-langdata
+
 make training MODEL_NAME=eng
 
 # copy the final model
