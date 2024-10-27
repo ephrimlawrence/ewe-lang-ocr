@@ -14,7 +14,13 @@ make tesseract-langdata
 
 make training MODEL_NAME=eng
 
-# copy the final model
+# Plotting CER
+make plot MODEL_NAME=eng
+make evaluation MODEL_NAME=eng
+
+# copy the final model/reports
 cp --verbose --force data/eng.traineddata ../app/ewe.traineddata
+cp --verbose --force data/eng/eng.plot_cer.png ../graphs
+cp --verbose --force data/eng/eng.plot_log.png ../graphs
 
 echo "Training completed!";
