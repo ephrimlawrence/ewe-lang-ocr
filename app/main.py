@@ -39,12 +39,12 @@ def get_words():
     word = r.get_random_word()
     if len(word) > 3:
         word = word[:3]
-    return {"words": "ɔ" * 3}
+    return {"words": "ɔ"}
 
 
 @app.get("/")
 def index(request: Request):
-    img_cv = cv2.imread(r"test.png")
+    img_cv = cv2.imread(r"ocr_image.png")
 
     # By default OpenCV stores images in BGR format and since pytesseract assumes RGB format,
     # we need to convert from BGR to RGB format/mode:
@@ -94,7 +94,7 @@ def read_item(body: Drawing):
 
         # # Decode image array using OpenCV
         img = cv2.imdecode(image_array, cv2.IMREAD_GRAYSCALE)
-        cv2.imwrite("test.png", img)
+        cv2.imwrite("ocr_image.png", img)
 
         # single_img_doc = DocumentFile.from_images("test.png")
         # result = model(single_img_doc)
@@ -106,7 +106,7 @@ def read_item(body: Drawing):
         # cv2.imshow('Image', thresh)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
-        contents = pytesseract.image_to_string(thresh, config=r"--psm 5", lang="ewe")
+        contents = pytesseract.image_to_string(thresh, config=r"--psm 10", lang="ewe")
         print(contents)
 
         return {"words": contents}
