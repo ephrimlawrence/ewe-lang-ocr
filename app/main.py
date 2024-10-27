@@ -39,7 +39,7 @@ def get_words():
     word = r.get_random_word()
     if len(word) > 3:
         word = word[:3]
-    return {"words": "ɔ"}
+    return {"words": word}
 
 
 @app.get("/")
